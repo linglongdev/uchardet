@@ -1,0 +1,26 @@
+package:
+  id: uchardet
+  version: 0.0.6
+  kind: lib
+
+base:
+  id: org.deepin.base
+  version: 20.5.0
+
+source:
+  kind: git
+  url: https://github.com/deepin-community/uchardet.git
+  version: master
+  commit: 61e0f3dc40d7539a47259d08bd872350f4606878
+
+  patch: []
+build:
+  kind: manual
+  manual:
+    configure: |
+      #exec bash
+      mkdir build
+      cd build
+      cmake -DCMAKE_INSTALL_PREFIX=${PREFIX} ..
+      make -j
+      make install -j
